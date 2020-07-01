@@ -24,20 +24,6 @@ void Union(vector<int>& a, vector<int>& b)
 bool Find(int a, int b, vector<vector<int> > allSets)
 {
     int i, j;
-    for(i=0; i<allSets.size(); i++)
-    {
-        if(allSets[i][0] == a)
-        {
-            for(j=1; j<allSets[i].size(); j++)
-                if(allSets[i][j] == b) return true; // Find b in set a
-        }
-        else if(allSets[i][0] == b)
-        {
-            for(j=1; j<allSets[i].size(); j++)
-                if(allSets[i][j] == a) return true; // Find a in set b
-        }
-    }
-
     bool find;
     for(i=0; i<allSets.size(); i++)
     {
@@ -89,9 +75,10 @@ vector<Edge> Kruskal(vector<Edge> edges, int v)
 
 int main()
 {
-    Edge edge;
     int v, e, i, a, b, w;
+    Edge edge;
     vector<Edge> edges, result;
+    
     /* Input */
     cout << "Number of vertices:";
     cin >> v;
